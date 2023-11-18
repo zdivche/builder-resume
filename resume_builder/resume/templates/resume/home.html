@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block title %}home{% endblock %}
+
+{% block content %}
+
+
+
+<div class="d-flex justify-content-center align-items-center mt-5" >
+    <h1>На этом сайте вы можете создать резюме бесплатно</h1>
+</div>
+<div class="text-center mt-4">
+    <a href="{% url 'personal_info_form' %}" class="btn btn-primary">Создать резюме</a>
+</div>
+
+
+{% endblock %}

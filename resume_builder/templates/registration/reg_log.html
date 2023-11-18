@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block title %}Регистрация или вход{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <h1>Для создания резюме вам надо зарегистрироваться</h1>
+  <div class="row">
+    <div class="col-md-6 mt-5">
+      <h2>Регистрация</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ register_form }}
+        <button type="submit" class="btn btn-primary mt-2">Зарегистрироваться</button>
+      </form>
+    </div>
+
+    <div class="col-md-6 mt-5">
+      <h2>Уже есть аккаунт?</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ login_form }}
+        <button type="submit" class="btn btn-primary mt-2">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

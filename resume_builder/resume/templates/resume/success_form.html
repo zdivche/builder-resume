@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block title %}Созданное резюме{% endblock %}
+{% block content %}
+<div class="text-center mt-5 mb-5">
+    <h1>Резюме создано!</h1>
+
+    <h2>Персональная информация</h2>
+    <ul class="list-group">
+        {% for info in personal_info %}
+        <li class="list-group-item">{{ info.name }} {{ info.surname }}</li>
+        <li class="list-group-item">Дата рождения: {{ info.date_birth }}</li>
+        <li class="list-group-item">Email: {{ info.email }}</li>
+        <li class="list-group-item">Телефон: {{ info.phone }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Образование</h2>
+    <ul class="list-group">
+        {% for edu in education %}
+        <li class="list-group-item">Университет: {{ edu.university }}</li>
+        <li class="list-group-item">Факультет: {{ edu.degree }}</li>
+        <li class="list-group-item">Дата: {{ edu.start_date_univer }}-{{ edu.end_date_univer }}</li>
+        <li class="list-group-item">Описание: {{ edu.description }}</li>
+
+        {% endfor %}
+    </ul>
+
+    <h2>Опыт работы</h2>
+    <ul class="list-group mb-5">
+        {% for exp in experience %}
+        <li class="list-group-item">Компания: {{ exp.company }}</li>
+        <li class="list-group-item">Должность: {{ exp.position }}</li>
+        <li class="list-group-item">Дата: {{ exp.start_date }}-{{ exp.end_date }}</li>
+        <li class="list-group-item">Описание: {{ exp.description }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'resume_edit' %}">Редактировать резюме</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% block title %}Создание резюме{% endblock %}
+{% block content %}
+<div class="mx-auto mb-5">
+    <h1>Заполнение формы</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Общая информация</h2>
+        <div class="form-group">
+            <h5>Имя</h5>
+            {{ personal_info_form.name }}
+            <h5>Фамилия</h5>
+            {{ personal_info_form.surname }}
+        </div>
+        <div class="form-group">
+            <h5>Дата рождения</h5>
+            {{ personal_info_form.date_birth }}
+            <h5>Email</h5>
+            {{ personal_info_form.email }}
+        </div>
+        <div class="form-group">
+            <h5>Телефон</h5>
+            {{ personal_info_form.phone }}
+        </div>
+        <h2>Образование</h2>
+        <div class="form-group">
+            <h5>Университет</h5>
+            {{ education_form.university }}
+        </div>
+        <div class="form-group">
+            <h5>Факультет</h5>
+            {{ education_form.degree }}
+        </div>
+        <div class="form-group">
+            <h5>Дата</h5>
+            {{ education_form.start_date_univer }}-{{ education_form.end_date_univer }}
+        </div>
+        <div class="form-group">
+            <h5>Доп информация</h5>
+            {{ education_form.description }}
+        </div>
+        <div class="form-group">
+            <h5>Языки</h5>
+            {{ education_form.language }}
+        </div>
+        <h2>Опыт работы</h2>
+        <div class="form-group">
+            <h5>Компания</h5>
+            {{ experience_form.company }}
+        </div>
+        <div class="form-group">
+            <h5>Должность</h5>
+            {{ experience_form.position }}
+        </div>
+        <div class="form-group">
+            <h5>Дата</h5>
+            {{ experience_form.start_date }}-{{ experience_form.end_date }}
+        </div>
+        <div class="form-group">
+            <h5>Доп информация</h5>
+            {{ experience_form.description }}
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
+
+{% endblock %}
